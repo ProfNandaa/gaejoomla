@@ -1,0 +1,43 @@
+application: joomla-gae
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /(.*\.(htm$|html$|css$|js$))
+  static_files: joomla/\1
+  upload: joomla/(.*\.(htm$|html$|css$|js$))
+  application_readable: true
+  secure: always
+
+## Admin 
+- url: /administrator(.+)
+  script: joomla/administrator\1
+  secure: always
+
+## Asset folders
+- url: /media
+  static_dir: joomla/media
+  application_readable: true
+
+- url: /images
+  static_dir: joomla/images
+  application_readable: true
+
+## Template folders
+- url: /templates
+  static_dir: joomla/templates
+  application_readable: true
+
+- url: /administrator/templates
+  static_dir: joomla/administrator/templates
+  application_readable: true
+
+## SEO robots
+- url: /robots.txt
+  script: joomla/robots.txt
+
+## Site access
+- url: /(.+)?/?
+  script: joomla/index.php
+  secure: always
