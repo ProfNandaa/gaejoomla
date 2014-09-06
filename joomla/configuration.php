@@ -31,9 +31,9 @@ class JConfig {
 
 	/* Database Settings */
 	public $dbtype = 'mysql';					// Normally mysql
-	public $host = 'localhost';					// This is normally set to localhost
+	public $host = ':/cloudsql/joomladayke:joomladayke';					// Cloud instance...
 	public $user = 'root';							// DB username
-	public $password = 'r00t';						// DB password
+	public $password = '';						// DB password, leave it blank when on AppEngine
 	public $db = 'joomladayke';							// DB database name
 	public $dbprefix = 'y58du_';					// Do not change unless you need to!
 
